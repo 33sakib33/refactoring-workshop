@@ -1,5 +1,7 @@
 package workshop;
 
+import java.util.List;
+
 /**
  * Requirements:
  * For factor of three print Fizz instead of the number
@@ -7,19 +9,19 @@ package workshop;
  * For numbers which are factors of both three and five print FizzBuzz instead of the number
  */
 public class FizzBuzz {
-    public static String say(int number) {
-        String strReturn = null;
+    private List<Patternyzer> patternMatchers;
+    public FizzBuzz(List<Patternyzer> patternMatchers) {
+        super();
+        this.patternMatchers = patternMatchers;
+    }
 
-        if (number % 15 == 0) {
-            strReturn = "FizzBuzz";
-        } else {
-            if (number % 3 == 0) strReturn = "Fizz";
+    public String say(int number) {
+        String strReturn = "";
 
-            if (number % 5 == 0) strReturn = "Buzz";
+        for (Patternyzer patternMatcher : patternMatchers) {
+            if (patternMatcher.parityCheck(number)) strReturn=strReturn.concat(patternMatcher.generatePattern());
         }
 
-        if (strReturn != null) return strReturn;
-
-        return String.valueOf(number);
+        return strReturn;
     }
 }
