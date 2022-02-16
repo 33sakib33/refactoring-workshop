@@ -60,6 +60,7 @@ public class TriviaGame {
                 isGettingOutOfPenaltyBox = true;
 
                 announce(players.get(currentPlayer) + " is getting out of the penalty box");
+                //duplicate
                 places[currentPlayer] = places[currentPlayer] + roll;
                 if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
@@ -74,7 +75,7 @@ public class TriviaGame {
             }
 
         } else {
-
+            //duplicate
             places[currentPlayer] = places[currentPlayer] + roll;
             if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
