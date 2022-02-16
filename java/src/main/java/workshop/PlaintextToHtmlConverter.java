@@ -33,7 +33,6 @@ public class PlaintextToHtmlConverter {
 
     public String toHtml() throws Exception {
         String input=readerField.read();
-        String htmlLines = encodeField.basicHtmlEncode(input);
-        return htmlLines;
+        return encodeField.basicHtmlEncode(input);
     }
 }
