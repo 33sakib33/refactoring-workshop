@@ -1,4 +1,4 @@
-package workshop;
+package workshop.Trivia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ public class TriviaGame {
     private ArrayList<Player> playerList;
     private HashMap<QuestionType,LinkedList<Questions>> questionList;
     Iterator<Player> it;
-    private Player currentPlayer=null;
+    private Player currentPlayer;
 
     public TriviaGame(ArrayList<Player> playerList, HashMap<QuestionType, LinkedList<Questions>> questionList){
         this.playerList = playerList;
@@ -64,9 +64,9 @@ public class TriviaGame {
             announce("Answer was correct!!!!");
             currentPlayer.setPurse(currentPlayer.getPlace()+1);
             announce(currentPlayer.getName() + " now has " +currentPlayer.getPurse() + " Gold Coins.");
-            boolean winner = didPlayerWin();
-            return winner;
+            return didPlayerWin();
         }
+        return false;
     }
     public boolean wrongAnswer() {
         announce("Question was incorrectly answered");

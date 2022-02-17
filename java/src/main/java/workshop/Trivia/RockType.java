@@ -1,4 +1,4 @@
-package workshop;
+package workshop.Trivia;
 
 public class RockType implements QuestionType{
     @Override

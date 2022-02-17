@@ -1,4 +1,4 @@
-package workshop;
+package workshop.Trivia;
 
 public class SportsType implements QuestionType{
     @Override

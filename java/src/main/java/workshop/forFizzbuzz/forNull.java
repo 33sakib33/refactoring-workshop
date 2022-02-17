@@ -1,6 +1,6 @@
-package workshop;
+package workshop.forFizzbuzz;
 
-public class forNull implements Patternyzer{
+public class forNull implements Patternyzer {
     public boolean parityCheck(int number){
         return false;
     }

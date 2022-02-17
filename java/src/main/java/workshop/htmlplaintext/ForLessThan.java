@@ -1,4 +1,4 @@
-package workshop;
+package workshop.htmlplaintext;
 
 public class ForLessThan implements Patternyzer2{
     @Override

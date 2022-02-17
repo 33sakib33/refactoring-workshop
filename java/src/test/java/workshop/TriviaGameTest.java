@@ -1,6 +1,8 @@
 package workshop;
 
 import org.junit.Test;
+import workshop.Trivia.TriviaGame;
+import workshop.forFizzbuzz.FizzBuzz;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,7 @@
 package workshop;
 
 import org.junit.Test;
+import workshop.htmlplaintext.PlaintextToHtmlConverter;
 
 import java.io.IOException;
 

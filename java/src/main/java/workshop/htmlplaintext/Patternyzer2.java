@@ -1,4 +1,4 @@
-package workshop;
+package workshop.htmlplaintext;
 
 public interface Patternyzer2 {
     public boolean doesMatch(String param);

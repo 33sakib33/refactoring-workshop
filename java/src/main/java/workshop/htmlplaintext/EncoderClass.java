@@ -1,4 +1,4 @@
-package workshop;
+package workshop.htmlplaintext;
 
 import java.util.ArrayList;
 import java.util.List;

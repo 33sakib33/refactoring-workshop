@@ -1,4 +1,4 @@
-package workshop;
+package workshop.htmlplaintext;
 
 public class ForNewLine implements Patternyzer2 {
     @Override

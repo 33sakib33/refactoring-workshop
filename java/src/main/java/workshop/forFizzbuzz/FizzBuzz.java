@@ -1,4 +1,4 @@
-package workshop;
+package workshop.forFizzbuzz;
 
 import java.util.List;
 
