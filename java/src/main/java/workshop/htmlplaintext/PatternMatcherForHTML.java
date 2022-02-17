@@ -1,6 +1,6 @@
 package workshop.htmlplaintext;
 
-public interface Patternyzer2 {
+public interface PatternMatcherForHTML {
     public boolean doesMatch(String param);
     public String patternReturner();
 }

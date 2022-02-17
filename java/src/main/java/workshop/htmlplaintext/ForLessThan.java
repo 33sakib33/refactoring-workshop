@@ -1,6 +1,6 @@
 package workshop.htmlplaintext;
 
-public class ForLessThan implements Patternyzer2{
+public class ForLessThan implements PatternMatcherForHTML {
     @Override
     public boolean doesMatch(String param) {
         return (param.equals("<"));

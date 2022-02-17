@@ -1,6 +1,6 @@
 package workshop.htmlplaintext;
 
-public class ForAmp implements Patternyzer2{
+public class ForAmp implements PatternMatcherForHTML {
     @Override
     public boolean doesMatch(String param) {
         return (param.equals("&"));

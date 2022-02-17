@@ -1,6 +1,6 @@
 package workshop.forFizzbuzz;
 
-public interface Patternyzer {
+public interface PatternMatcherForFizzBuzz {
     public boolean parityCheck(int number);
     public String generatePattern();
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EncoderClass {
-    private List<Patternyzer2> converterList;
-    EncoderClass( List<Patternyzer2> converterList ){
+    private List<PatternMatcherForHTML> converterList;
+    EncoderClass( List<PatternMatcherForHTML> converterList ){
         this.converterList=converterList;
     }
     public String basicHtmlEncode(String source) {
@@ -14,7 +14,7 @@ public class EncoderClass {
         String[] charArray=source.split("");
         for(String charItr : charArray){
             String temp=charItr;
-            for(Patternyzer2 converterItr: converterList){
+            for(PatternMatcherForHTML converterItr: converterList){
                 if(converterItr.doesMatch(charItr)){
                     temp= converterItr.patternReturner();
                     break;

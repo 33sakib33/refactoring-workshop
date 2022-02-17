@@ -28,7 +28,7 @@ public class TriviaGame {
     public boolean isPlayable() {
         return (playerList.size() >= 2);
     }
-    public boolean addPlayer(String playerName) {
+    public boolean add(String playerName) {
         Player newPlayer= new Player(playerName);
         playerList.add(newPlayer);
         announce(newPlayer.getName() + " was added");
