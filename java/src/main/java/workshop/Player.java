@@ -57,7 +57,7 @@ public class Player {
         isGettingOutOfPenaltyBox = gettingOutOfPenaltyBox;
     }
     public boolean willMove(int number){
-        return (((isPenaltyBox()) & (number%2==0)) | !isPenaltyBox()) ;
+        return (((isPenaltyBox()) & (number%2!=0)) | !isPenaltyBox()) ;
     }
     public void move(int number){
         String status=getName()+" is not getting out of the penalty box";
