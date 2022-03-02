@@ -1,6 +1,8 @@
 package workshop.forFizzbuzz;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Requirements:
@@ -9,19 +11,19 @@ import java.util.List;
  * For numbers which are factors of both three and five print FizzBuzz instead of the number
  */
 public class FizzBuzz {
-    private List<PatternMatcherForFizzBuzz> patternMatchers;
-    public FizzBuzz(List<PatternMatcherForFizzBuzz> patternMatchers) {
-        super();
+    private ArrayList<PatternMatcherForFizzBuzz> patternMatchers;
+    private PatternMatcherForFizzBuzz nullMatcher;
+    public FizzBuzz(ArrayList<PatternMatcherForFizzBuzz> patternMatchers, PatternMatcherForFizzBuzz forNullObj ) {
         this.patternMatchers = patternMatchers;
+        this.nullMatcher=forNullObj;
     }
 
     public String say(int number) {
-        String strReturn = "";
+        String strReturn = Integer.toString(number);
 
         for (PatternMatcherForFizzBuzz patternMatcher : patternMatchers) {
-            if (patternMatcher.parityCheck(number)) strReturn=strReturn.concat(patternMatcher.generatePattern());
+            if (patternMatcher.parityCheck(number)) strReturn=patternMatcher.generatePattern();
         }
-        strReturn=strReturn.isEmpty()?Integer.toString(number):strReturn;
         return strReturn;
     }
 }

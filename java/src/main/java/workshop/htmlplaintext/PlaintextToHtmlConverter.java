@@ -1,12 +1,10 @@
 package workshop.htmlplaintext;
 
-import workshop.Trivia.ReadFromFile;
-
 public class PlaintextToHtmlConverter {
     private ReadFromFile readerField;
     private String pathField;
     private EncoderClass encodeField;
-    PlaintextToHtmlConverter(String pathParam, EncoderClass encodeField){
+    public PlaintextToHtmlConverter(String pathParam, EncoderClass encodeField){
         this.pathField=pathParam;
         this.encodeField=encodeField;
         readerField = new ReadFromFile(getPathField());

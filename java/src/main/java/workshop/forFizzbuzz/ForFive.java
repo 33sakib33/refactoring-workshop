@@ -1,6 +1,6 @@
 package workshop.forFizzbuzz;
 
-public class forFive implements PatternMatcherForFizzBuzz {
+public class ForFive implements PatternMatcherForFizzBuzz {
     public boolean parityCheck(int number){
         return (number%5==0);
     }

@@ -1,4 +1,4 @@
-package workshop.Trivia;
+package workshop.htmlplaintext;
 
 import java.io.IOException;
 import java.nio.file.Files;
