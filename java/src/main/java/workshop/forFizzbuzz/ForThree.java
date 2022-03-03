@@ -5,6 +5,6 @@ public class ForThree implements PatternMatcherForFizzBuzz {
         return (number%3==0);
     }
     public String generatePattern(){
-        return "fizz";
+        return "Fizz";
     }
 }

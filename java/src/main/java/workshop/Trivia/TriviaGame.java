@@ -8,20 +8,19 @@ import java.util.LinkedList;
 public class TriviaGame {
     private ArrayList<Player> playerList;
     private HashMap<QuestionType,LinkedList<Questions>> questionList;
-    Iterator<Player> it;
-    private Player currentPlayer;
+    private int currentPlayer;
 
     public TriviaGame(ArrayList<Player> playerList, HashMap<QuestionType, LinkedList<Questions>> questionList){
         this.playerList = playerList;
         this.questionList = questionList;
-        this.it=this.playerList.iterator();
+        currentPlayer=0;
     }
 
-    public Player getCurrentPlayer() {
-        return currentPlayer;
+    private Player getCurrentPlayer() {
+        return playerList.get(currentPlayer);
     }
 
-    public void setCurrentPlayer(Player currentPlayer) {
+    public void setCurrentPlayer(int currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 
@@ -31,23 +30,23 @@ public class TriviaGame {
     public boolean add(String playerName) {
         Player newPlayer= new Player(playerName);
         playerList.add(newPlayer);
-        System.out.println(newPlayer.getName() + " was added");
-        System.out.println("They are player number " + playerList.size());
+        announce(newPlayer.getName() + " was added");
+        announce("They are player number " + playerList.size());
         return true;
     }
 
     public void roll(int roll) {
-        it=it.hasNext()?it:playerList.iterator();
-        currentPlayer=it.next();
-        System.out.println(currentPlayer.getName() + " is the current player");
-        System.out.println("They have rolled a " + roll);
-        currentPlayer.move(roll);
-        if(!currentPlayer.isPenaltyBox()) {
-            QuestionType currQuesType=null;
+
+        announce(getCurrentPlayer().getName() + " is the current player");
+        announce("They have rolled a " + roll);
+        announce(getCurrentPlayer().move(roll));
+
+        if(!getCurrentPlayer().isPenaltyBox()) {
+            QuestionType currQuesType;
             for(QuestionType quesTypeItr: questionList.keySet()){
-                if(quesTypeItr.matchCategory(currentPlayer.getPlace())){
+                if(quesTypeItr.matchCategory(getCurrentPlayer().getPlace())){
                     currQuesType=quesTypeItr;
-                    System.out.println("The category is " + currQuesType.retType());
+                    announce("The category is " + currQuesType.retType());
                     askQuestion(currQuesType);
                     break;
                 }
@@ -56,25 +55,30 @@ public class TriviaGame {
     }
 
     private void askQuestion(QuestionType curQuesType) {
-        System.out.println(questionList.get(curQuesType.retType()).removeFirst());
+        announce(questionList.get(curQuesType).getFirst().getQuestionString());
     }
 
     public boolean wasCorrectlyAnswered() {
         if(!getCurrentPlayer().isPenaltyBox()){
-            System.out.println("Answer was correct!!!!");
-            currentPlayer.setPurse(currentPlayer.getPlace()+1);
-            System.out.println(currentPlayer.getName() + " now has " +currentPlayer.getPurse() + " Gold Coins.");
+            announce("Answer was correct!!!!");
+            getCurrentPlayer().setPurse(getCurrentPlayer().getPurse()+1);
+            announce(getCurrentPlayer().getName() + " now has " +getCurrentPlayer().getPurse() + " Gold Coins.");
             return didPlayerWin();
         }
+        setCurrentPlayer((currentPlayer+1)%playerList.size());
         return false;
     }
     public boolean wrongAnswer() {
-        System.out.println("Question was incorrectly answered");
-        System.out.println(currentPlayer.getName()+ " was sent to the penalty box");
-        currentPlayer.setPenaltyBox(true);
+        announce("Question was incorrectly answered");
+        announce(getCurrentPlayer().getName()+ " was sent to the penalty box");
+        getCurrentPlayer().setPenaltyBox(true);
+        setCurrentPlayer((currentPlayer+1)%playerList.size());
         return true;
     }
     private boolean didPlayerWin() {
-        return !(currentPlayer.getPurse()==6);
+        return !(getCurrentPlayer().getPurse()==6);
+    }
+    protected void announce(Object message) {
+        announce(message);
     }
 }

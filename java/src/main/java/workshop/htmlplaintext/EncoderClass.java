@@ -7,7 +7,7 @@ import java.util.List;
 
 public class EncoderClass {
     private List<PatternMatcherForHTML> converterList;
-    EncoderClass( List<PatternMatcherForHTML> converterList ){
+    public EncoderClass( List<PatternMatcherForHTML> converterList ){
         this.converterList=converterList;
     }
     public String basicHtmlEncode(String source) {
@@ -24,6 +24,6 @@ public class EncoderClass {
             }
             result.add(temp);
         }
-        return String.join("<br />", result);
+        return String.join("", result);
     }
 }

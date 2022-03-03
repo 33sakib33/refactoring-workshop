@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ReadFromFile {
+public class ReaderClass {
     String path;
 
-    public ReadFromFile(String path) {
+    public ReaderClass(String path) {
         this.path = path;
     }
 

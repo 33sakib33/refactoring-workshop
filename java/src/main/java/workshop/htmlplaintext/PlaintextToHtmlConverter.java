@@ -1,32 +1,20 @@
 package workshop.htmlplaintext;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class PlaintextToHtmlConverter {
-    private ReadFromFile readerField;
-    private String pathField;
     private EncoderClass encodeField;
-    public PlaintextToHtmlConverter(String pathParam, EncoderClass encodeField){
-        this.pathField=pathParam;
+    public PlaintextToHtmlConverter(EncoderClass encodeField){
         this.encodeField=encodeField;
-        readerField = new ReadFromFile(getPathField());
-    }
-    public String getPathField() {
-        return pathField;
-    }
 
-    public ReadFromFile getReaderField() {
-        return readerField;
     }
-
-    public void setReaderField(ReadFromFile readerField) {
-        this.readerField = readerField;
-    }
-
-    public void setPathField(String pathField) {
-        this.pathField = pathField;
+    public String read() throws IOException {
+        return new String(Files.readAllBytes(Paths.get("sample.txt")));
     }
 
     public String toHtml() throws Exception {
-        String input=readerField.read();
-        return encodeField.basicHtmlEncode(input);
+        return encodeField.basicHtmlEncode(read());
     }
 }

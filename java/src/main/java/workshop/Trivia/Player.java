@@ -59,14 +59,14 @@ public class Player {
     public boolean willMove(int number){
         return (((isPenaltyBox()) & (number%2!=0)) | !isPenaltyBox()) ;
     }
-    public void move(int number){
+    public String move(int number){
         String status=getName()+" is not getting out of the penalty box";
         if(willMove(number)){
             setPlace((getPlace()+number)%12);
             status=getName()+"'s new location is "+ getPlace();
             setPenaltyBox(false);
         }
-        System.out.println(status);
+        return(status);
     }
     public boolean isWinner(){
         return (getPurse()>=6);

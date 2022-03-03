@@ -22,7 +22,9 @@ public class FizzBuzz {
         String strReturn = Integer.toString(number);
 
         for (PatternMatcherForFizzBuzz patternMatcher : patternMatchers) {
-            if (patternMatcher.parityCheck(number)) strReturn=patternMatcher.generatePattern();
+            if (patternMatcher.parityCheck(number)==true) {
+                strReturn=patternMatcher.generatePattern();
+            }
         }
         return strReturn;
     }

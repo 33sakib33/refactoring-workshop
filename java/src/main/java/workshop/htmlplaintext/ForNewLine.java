@@ -8,7 +8,6 @@ public class ForNewLine implements PatternMatcherForHTML {
 
     @Override
     public String patternReturner() {
-        String s = "<br>";
-        return s;
+        return "<br />";
     }
 }
