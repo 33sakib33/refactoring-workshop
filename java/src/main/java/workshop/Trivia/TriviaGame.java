@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+/***Removed conditionals about the questiontypes with a Hashmap and an interface
+There was a huge chunk of duplicate code in the question answering methods.
+ IT was fixed using extract methods
+Fixed a large class
+Removed some primitive obsession*/
 
 public class TriviaGame {
     private ArrayList<Player> playerList;
